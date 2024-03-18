@@ -26,13 +26,13 @@ spec:
           name: dbport
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: Wshhhy+@20050311
+          value: rootPassW0rd
         - name: MYSQL_DATABASE
           value: wordpress
         - name: MYSQL_USER
           value: wordpress
         - name: MYSQL_PASSWORD
-          value: Wshhhy+@20050311
+          value: wordpress
         volumeMounts:
         - name: db
           mountPath: /var/lib/mysql
@@ -96,12 +96,7 @@ spec:
         - name: WORDPRESS_DB_USER
           value: wordpress
         - name: WORDPRESS_DB_PASSWORD
-          value: Wshhhy+@20050311
-        livenessProbe:
-          tcpSocket:
-            port: 80
-          initialDelaySeconds: 3
-          periodSeconds: 3
+          value: wordpress
         readinessProbe:
           tcpSocket:
             port: 80
@@ -110,7 +105,7 @@ spec:
         resources:
           limits:
             cpu: 200m
-            memory: 200Mi
+            memory: 256Mi
           requests:
             cpu: 100m
             memory: 100Mi
